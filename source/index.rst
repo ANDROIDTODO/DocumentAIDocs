@@ -7,14 +7,8 @@ Welcome to DocumentAI's documentation!
 ======================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
+   :caption: DocumentAI 介绍
+   :name: introduction
 
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   guide/introduction
