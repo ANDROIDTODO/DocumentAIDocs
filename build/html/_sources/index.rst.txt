@@ -12,3 +12,11 @@ Welcome to DocumentAI's documentation!
    :name: introduction
 
    guide/introduction
+
+.. toctree::
+  :maxdepth: 1
+  :caption: 快速开始
+  :name: sec-quick-start
+
+   api/API
+   api/general
