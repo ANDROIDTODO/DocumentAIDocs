@@ -8,15 +8,17 @@ Welcome to DocumentAI's documentation!
 
 .. toctree::
    :maxdepth: 1
-   :caption: DocumentAI 介绍
+   :caption: DocumentAI
    :name: introduction
 
    guide/introduction
+   guide/module
+   guide/model
 
 .. toctree::
-  :maxdepth: 1
-  :caption: 快速开始
-  :name: sec-quick-start
+   :maxdepth: 1
+   :caption: 快速开始
+   :name: sec-quick-start
 
-   api/API
-   api/general
+   api/cplus_api
+   api/cplus_general
