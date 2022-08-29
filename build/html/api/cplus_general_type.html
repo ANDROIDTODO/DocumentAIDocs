@@ -19,7 +19,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="prev" title="C++ API" href="cplus_api.html" /> 
+    <link rel="next" title="通用接口" href="cplus_general_api.html" />
+    <link rel="prev" title="模型介绍" href="../guide/model.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,11 +44,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../guide/module.html">功能模块介绍</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide/model.html">模型介绍</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">快速开始</span></p>
+<p class="caption" role="heading"><span class="caption-text">接口定义</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="cplus_api.html">C++ API</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">通用类型</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#sdk-add-license">sdk_add_license</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cplus_general_api.html">通用接口</a></li>
 </ul>
 
         </div>
@@ -66,7 +66,7 @@
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
       <li>通用类型</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/api/cplus_general.md.txt" rel="nofollow"> 查看页面源码</a>
+            <a href="../_sources/api/cplus_general_type.md.txt" rel="nofollow"> 查看页面源码</a>
       </li>
   </ul>
   <hr/>
@@ -278,10 +278,6 @@
 <td>height</td>
 <td>图像高度(以像素为单位)</td>
 </tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
 </tbody>
 </table><p><a id = 'api_general_da_handle_t'><code class="docutils literal notranslate"><span class="pre">da_handle_t</span></code> </a></p>
 <p>功能：</p>
@@ -395,12 +391,9 @@
 <td></td>
 <td></td>
 </tr>
-<tr>
-<td><a id = 'api_general_da_object_t'><code>da_object_t</code> </a></td>
-<td></td>
-</tr>
 </tbody>
-</table><p>功能：</p>
+</table><p><a id = 'api_general_da_object_t'><code class="docutils literal notranslate"><span class="pre">da_object_t</span></code> </a></p>
+<p>功能：</p>
 <p>枚举目标类型</p>
 <p>声明：</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">da_object</span><span class="p">{</span><span class="w"></span>
@@ -446,12 +439,9 @@
 <td>DA_OT_UNKNOWN</td>
 <td>无</td>
 </tr>
-<tr>
-<td><a id = 'api_general_da_ocr_det_t'><code>da_ocr_det_t</code> </a></td>
-<td></td>
-</tr>
 </tbody>
-</table><p>功能：</p>
+</table><p><a id = 'api_general_da_ocr_det_t'><code class="docutils literal notranslate"><span class="pre">da_ocr_det_t</span></code> </a></p>
+<p>功能：</p>
 <p>ocr检测的单个结果，以矩形框表示</p>
 <p>声明：</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">da_ocr_det</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">public</span><span class="w"> </span><span class="n">da_handle_result</span><span class="p">{</span><span class="w"></span>
@@ -476,12 +466,9 @@
 <td></td>
 <td></td>
 </tr>
-<tr>
-<td><a id = 'api_general_da_ocr_rec_t'><code>da_ocr_rec_t</code> </a></td>
-<td></td>
-</tr>
 </tbody>
-</table><p>功能：</p>
+</table><p><a id = 'api_general_da_ocr_rec_t'><code class="docutils literal notranslate"><span class="pre">da_ocr_rec_t</span></code> </a></p>
+<p>功能：</p>
 <p>图片像素格式类型，用于指定<a id = 'api_general_da_image_t'><code class="docutils literal notranslate"><span class="pre">da_image_t</span></code> </a>图片的像素格式</p>
 <p>声明：</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">da_ocr_rec</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">public</span><span class="w"> </span><span class="n">da_handle_result</span><span class="p">{</span><span class="w"></span>
@@ -513,20 +500,13 @@
 </tr>
 </tbody>
 </table></section>
-<section id="sdk-add-license">
-<h1>sdk_add_license<a class="headerlink" href="#sdk-add-license" title="永久链接至标题"></a></h1>
-<p>#include &lt;<a class="reference external" href="https://github.com/PaddlePaddle/Paddle-Lite/tree/develop/lite/api/paddle_api.h">sdk_document_ai_api.h</a>&gt;</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">da_result_t</span><span class="w"> </span><span class="nf">sdk_add_license</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">license</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-</div>
-<p>设置license，根据</p>
-</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="cplus_api.html" class="btn btn-neutral float-left" title="C++ API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../guide/model.html" class="btn btn-neutral float-left" title="模型介绍" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="cplus_general_api.html" class="btn btn-neutral float-right" title="通用接口" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

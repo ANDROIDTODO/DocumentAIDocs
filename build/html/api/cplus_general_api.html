@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>模型介绍 &mdash; DocumentAI 1.0.0 文档</title>
+  <title>通用接口 &mdash; DocumentAI 1.0.0 文档</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,8 +19,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="通用类型" href="../api/cplus_general_type.html" />
-    <link rel="prev" title="功能模块介绍" href="module.html" /> 
+    <link rel="prev" title="通用类型" href="cplus_general_type.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,15 +38,15 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">DocumentAI</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">DocumentAI 介绍</a></li>
-<li class="toctree-l1"><a class="reference internal" href="module.html">功能模块介绍</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">模型介绍</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide/introduction.html">DocumentAI 介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/module.html">功能模块介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/model.html">模型介绍</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">接口定义</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../api/cplus_general_type.html">通用类型</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/cplus_general_api.html">通用接口</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cplus_general_type.html">通用类型</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">通用接口</a></li>
 </ul>
 
         </div>
@@ -64,9 +63,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>模型介绍</li>
+      <li>通用接口</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/guide/model.md.txt" rel="nofollow"> 查看页面源码</a>
+            <a href="../_sources/api/cplus_general_api.md.txt" rel="nofollow"> 查看页面源码</a>
       </li>
   </ul>
   <hr/>
@@ -75,15 +74,20 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>模型介绍<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<h1>通用接口<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">sdk_add_license</span></code></p>
+<p>#include &lt;<a class="reference external" href="https://github.com/PaddlePaddle/Paddle-Lite/tree/develop/lite/api/paddle_api.h">sdk_document_ai_api.h</a>&gt;</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">da_result_t</span><span class="w"> </span><span class="nf">sdk_add_license</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">license</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>设置license，根据</p>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="module.html" class="btn btn-neutral float-left" title="功能模块介绍" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
-        <a href="../api/cplus_general_type.html" class="btn btn-neutral float-right" title="通用类型" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="cplus_general_type.html" class="btn btn-neutral float-left" title="通用类型" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
     </div>
 
   <hr/>

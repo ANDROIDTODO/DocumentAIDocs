@@ -17,8 +17,9 @@ Welcome to DocumentAI's documentation!
 
 .. toctree::
    :maxdepth: 1
-   :caption: 快速开始
+   :caption: 接口定义
    :name: sec-quick-start
 
-   api/cplus_api
-   api/cplus_general
+   api/cplus_general_type
+   api/cplus_general_api
+   

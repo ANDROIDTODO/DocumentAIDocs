@@ -100,7 +100,6 @@ typedef struct da_image{
 | pixel_format | 像素格式               |
 | width        | 图像宽度(以像素为单位) |
 | height       | 图像高度(以像素为单位) |
-|              |                        |
 
 <a id = 'api_general_da_handle_t'>`da_handle_t` </a>
 
@@ -139,6 +138,7 @@ typedef struct da_pointf{
 | y    | 点的垂直方向坐标，为浮点数 |
 |      |                            |
 
+
 <a id = 'api_general_da_point_t'>`da_point_t` </a>
 
 功能：
@@ -161,6 +161,7 @@ typedef struct da_point{
 | x    | 点的水平方向坐标，为整数 |
 | y    | 点的垂直方向坐标，为整数 |
 |      |                          |
+
 
 <a id = 'api_general_da_rect_t'>`da_rect_t` </a>
 
@@ -188,6 +189,7 @@ typedef struct da_rect{
 | right  | 矩形最右边的坐标 |
 | bottom | 矩形最下边的坐标 |
 |        |                  |
+
 <a id = 'api_general_da_object_t'>`da_object_t` </a>
 
 功能：
@@ -217,6 +219,8 @@ typedef enum da_object{
 | DA_OT_TEXT    | 文字类型                           |
 | DA_OT_FONT    | 4 通道 32bit BGRA 像素             |
 | DA_OT_UNKNOWN | 无                                 |
+
+
 <a id = 'api_general_da_ocr_det_t'>`da_ocr_det_t` </a>
 
 功能：
@@ -237,6 +241,8 @@ typedef struct da_ocr_det : public da_handle_result{
 | ---- | ------------------ |
 | bbox | 文字所在原图的位置 |
 |      |                    |
+
+
 <a id = 'api_general_da_ocr_rec_t'>`da_ocr_rec_t` </a>
 
 功能：
@@ -262,12 +268,3 @@ typedef struct da_ocr_rec : public da_handle_result{
 
 
 
-## sdk_add_license
-
- \#include &lt;[sdk_document_ai_api.h](https://github.com/PaddlePaddle/Paddle-Lite/tree/develop/lite/api/paddle_api.h)&gt;
-
-```c++
-da_result_t sdk_add_license(const char* license);
-```
-
-设置license，根据
