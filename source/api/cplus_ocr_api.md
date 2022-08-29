@@ -1,0 +1,22 @@
+## 通用接口
+
+| **接口名称** | **功能** |
+| ---- | :--- |
+| [sdk_add_license](#api_general_da_result_t) | 添加license |
+| [sdk_version](#api_general_da_pixel_format_e) | 获取sdk版本号 |
+| [sdk_model_version](#api_general_da_image_t) | 获取模型版本号 |
+| [sdk_image_create](#api_general_da_handle_t) | 根据图片路径创建图像指针并分配内存 |
+| [sdk_image_create_by_buffer](#api_general_da_pointf_t) | 根据图片数据创建图像指针并分配内存 |
+| [sdk_image_crop](#api_general_da_point_t) | 图像扣取 |
+| [sdk_image_save](#api_general_da_rect_t) | 图像保存 |
+| [sdk_image_release](#api_general_da_object_t) | 释放图像数据 |
+
+`sdk_add_license`
+
+ \#include &lt;[sdk_document_ai_api.h](https://github.com/PaddlePaddle/Paddle-Lite/tree/develop/lite/api/paddle_api.h)&gt;
+
+```c++
+da_result_t sdk_add_license(const char* license);
+```
+
+设置license，根据

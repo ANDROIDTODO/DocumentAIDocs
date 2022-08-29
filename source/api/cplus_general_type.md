@@ -1,5 +1,8 @@
 ## 通用类型
 
+头文件: 
+#include [<sdk_document_ai_common.h>]()
+
 | **接口名称** | **功能** |
 | ---- | :--- |
 | [da_result_t](#api_general_da_result_t) | 返回结果 |
@@ -43,6 +46,7 @@ typedef errcode da_result_t;
 | E_DA_MODEL_EXPIRE               | -8         | 模型过期           |
 | E_DA_SDK_EXPIRE                 | -9         | SDK过期            |
 | E_DA_MODEL_PLATFORM_UNSUPPORTED | -10        | 模型不支持该平台   |
+| E_DA_IMAGE_EMPTY                | -11        | 输入的图片不存在或者为空|
 
 
 <a id = 'api_general_da_pixel_format_e'>`da_pixel_format_e` </a>
