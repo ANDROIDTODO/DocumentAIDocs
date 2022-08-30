@@ -34,7 +34,7 @@ sdk_add_license(
 
 **响应**
 
-正常返回E_DA_SUCCESS，否则返回[错误类型](./cplus_general_type#api_general_da_result_t)
+正常返回E_DA_SUCCESS，否则返回[错误类型](./cplus_general_type)
 
 
 
@@ -71,7 +71,7 @@ sdk_model_version(
 );
 ```
 
-获取SDK版本号
+获取模型版本号
 
 **参数**
 
