@@ -34,7 +34,7 @@ sdk_add_license(
 
 **响应**
 
-正常返回E_DA_SUCCESS，否则返回错误类型
+正常返回E_DA_SUCCESS，否则返回[错误类型](./cplus_general_type#api_general_da_result_t)
 
 
 
@@ -43,7 +43,7 @@ sdk_add_license(
 ```c++
 da_result_t
 sdk_version(
-  char** version
+  char* version
 );
 ```
 
@@ -51,9 +51,34 @@ sdk_version(
 
 **参数**
 
-| **变量名** | **输入/输出** | **描述**      |
-| ---------- | ------------- | ------------- |
-| version    | [out]         | License字符串 |
+| **变量名** | **输入/输出** | **描述**    |
+| ---------- | ------------- | ----------- |
+| version    | [out]         | SDK版本指针 |
+
+**响应**
+
+正常返回E_DA_SUCCESS，否则返回错误类型
+
+
+
+`sdk_model_version`
+
+```c++
+da_result_t
+sdk_model_version(
+  const char* model_path,
+  char* model_version
+);
+```
+
+获取SDK版本号
+
+**参数**
+
+| **变量名**    | **输入/输出** | **描述**     |
+| ------------- | ------------- | ------------ |
+| model_path    | [in]          | 模型路径     |
+| model_version | [out]         | 模型版本指针 |
 
 **响应**
 

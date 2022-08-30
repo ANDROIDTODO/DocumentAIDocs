@@ -251,7 +251,7 @@ typedef struct da_ocr_det : public da_handle_result{
 
 功能：
 
-图片像素格式类型，用于指定<a id = 'api_general_da_image_t'>`da_image_t` </a>图片的像素格式
+ocr识别的单个结果，以识别的文字和置信度表示
 
 声明：
 
