@@ -22,4 +22,5 @@ Welcome to DocumentAI's documentation!
 
    api/cplus_general_type
    api/cplus_general_api
+   api/cplus_ocr_api
    

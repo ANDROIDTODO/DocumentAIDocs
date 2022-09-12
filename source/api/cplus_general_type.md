@@ -40,14 +40,17 @@ typedef errcode da_result_t;
 | E_DA_INVALID_ARG                | -2         | 无效参数           |
 | E_DA_INVALID_HANDLE             | -3         | 句柄错误           |
 | E_DA_FILE_NOT_FOUND             | -4         | 文件不存在         |
-| E_DA_SDK_MODEL_MISMATCH         | -5         | 库和模型不匹配     |
-| E_DA_INVALID_MODEL_FORMAT       | -6         | 模型格式错误       |
+| E_DA_LICENSE_MODEL_MISMATCH | -5         | 序列号和模型不匹配  |
+| E_DA_INVALID_MODEL_FORMAT       | -6         | 不合法的模型格式   |
 | E_DA_INVALID_LICENSE            | -7         | license不合法      |
 | E_DA_MODEL_EXPIRE               | -8         | 模型过期           |
 | E_DA_SDK_EXPIRE                 | -9         | SDK过期            |
-| E_DA_MODEL_PLATFORM_UNSUPPORTED | -10        | 模型不支持该平台   |
-| E_DA_IMAGE_EMPTY                | -11        | 输入的图片不存在或者为空|
-
+| E_DA_LICENSE_EXPIRE             | -10        | 序列号过期                       |
+| E_DA_LICENSE_UNINITIALIZED      | -11        | 调用接口时未调用初始化序列号接口 |
+| E_DA_MODEL_PLATFORM_UNSUPPORTED | -12 | 模型不支持该平台 |
+| E_DA_IMAGE_DATA_EMPTY | -13 | 输入的图片不存在或者为空 |
+| E_DA_IMAGE_W_H_ERROR | -14 | 输入的图片宽高错误 |
+| E_DA_IMAGE_UNSUPPORTED_FORMAT | -15 | 不支持的图片格式 |
 
 <a id = 'api_general_da_pixel_format_e'>`da_pixel_format_e` </a>
 
