@@ -1,5 +1,7 @@
 ## OCR
 
+**#include [<sdk_document_ai_api.h>]()**
+
 | **接口名称** | **功能** |
 | ---- | :--- |
 | [sdk_ocr_ocr_create](#api_ocr_c_sdk_ocr_ocr_create) | 创建文字检测、识别，方向的句柄 |
@@ -14,7 +16,7 @@
 ```c++
 da_result_t
 sdk_ocr_rec_infer(
-	const char* config,
+  const char* config,
   da_handle_t* handle
 );
 ```
@@ -58,7 +60,7 @@ if(ocr_create_result == E_DA_SUCCESS){
 ```c++
 da_result_t
 sdk_ocr_rec_infer(
-	const da_handle_t* handle,
+  const da_handle_t* handle,
   da_image_t *image,
   da_ocr_det_t **det_result,
   da_ocr_rec_t **rec_result,
@@ -107,7 +109,7 @@ if (ocr_result_t == E_DA_SUCCESS){
 ```c++
 da_result_t
 sdk_ocr_rec_infer(
-	const da_handle_t* handle,
+  const da_handle_t* handle,
   da_image_t *image,
   da_ocr_det_t **det_result,
   int *det_result_count
@@ -153,7 +155,7 @@ if (ocr_result_t == E_DA_SUCCESS){
 ```c++
 da_result_t
 sdk_ocr_rec_infer(
-	da_handle_t* handle,
+  da_handle_t* handle,
   da_image_t *image,
   da_ocr_rec_t *rec_result
 );

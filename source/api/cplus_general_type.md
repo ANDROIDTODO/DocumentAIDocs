@@ -1,7 +1,6 @@
 ## 通用类型
 
-头文件: 
-#include [<sdk_document_ai_common.h>]()
+**#include [<sdk_document_ai_common.h>]()**
 
 | **接口名称** | **功能** |
 | ---- | :--- |
@@ -51,6 +50,7 @@ typedef errcode da_result_t;
 | E_DA_IMAGE_DATA_EMPTY | -13 | 输入的图片不存在或者为空 |
 | E_DA_IMAGE_W_H_ERROR | -14 | 输入的图片宽高错误 |
 | E_DA_IMAGE_UNSUPPORTED_FORMAT | -15 | 不支持的图片格式 |
+| E_DA_SDK_MODEL_MISMATCH | -16 | SDK不支持该模型 |
 
 <a id = 'api_general_da_pixel_format_e'>`da_pixel_format_e` </a>
 
