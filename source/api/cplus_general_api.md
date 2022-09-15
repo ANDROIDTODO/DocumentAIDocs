@@ -16,6 +16,7 @@
 | [sdk_handle_release](#api_general_sdk_handle_release) | 释放模型句柄 |
 | [sdk_handle_common_release](#api_general_sdk_handle_common_release) | 释放返回的数据结果 |
 
+<br /><br /><br />
 <a id = 'api_general_sdk_add_license'>`sdk_add_license` </a>
 
 ```c++
@@ -48,23 +49,19 @@ if(add_license_result == E_DA_SUCCESS){
 
 正常返回E_DA_SUCCESS，否则返回[错误类型](./cplus_general_type)
 
-
-
+<br /><br /><br />
 <a id = 'api_general_sdk_add_license_file'>`sdk_add_license_file` </a>
 
 ```c++
-da_result_t
-sdk_add_license_file(
-  const char* license_path
-);
+da_result_t sdk_add_license_file(const char* license_path);
 ```
 
-设置license文件。若license不正确，所有非通用的接口都不能正常使用
+设置license。若license不正确，所有非通用的接口都不能正常使用
 
 **示例：**
 
 ```c++
-da_result_t add_license_result = sdk_add_license_file("license file path");
+da_result_t add_license_result = sdk_add_license("license_file_path");
 if(add_license_result == E_DA_SUCCESS){
   //add license successful.
 }else{
@@ -74,16 +71,16 @@ if(add_license_result == E_DA_SUCCESS){
 
 **参数**
 
-| **变量名**   | **输入/输出** | **描述**        |
-| ------------ | ------------- | --------------- |
-| license_path | [in]          | License文件路径 |
+| **变量名** | **输入/输出** | **描述**      |
+| ---------- | ------------- | ------------- |
+| license_path    | [in]          | License文件路径 |
 
 **响应**
 
 正常返回E_DA_SUCCESS，否则返回[错误类型](./cplus_general_type)
 
 
-
+<br /><br /><br />
 <a id = 'api_general_sdk_version'>`sdk_version` </a>
 
 ```c++
@@ -116,7 +113,7 @@ std::cout << "sdk version :" << std::string(version) << std::endl;
 正常返回E_DA_SUCCESS，否则返回[错误类型](./cplus_general_type)
 
 
-
+<br /><br /><br />
 <a id = 'api_general_sdk_model_info'>`sdk_model_info` </a>
 
 ```c++
@@ -148,14 +145,14 @@ if (acquire_model_version_result == E_DA_SUCCESS){
 | **变量名**    | **输入/输出** | **描述**     |
 | ------------- | ------------- | ------------ |
 | model_path    | [in]          | 模型路径     |
-| model_version | [out]         | 模型版本指针 |
+| model_info | [out]         | 模型信息指针 |
 
 **响应**
 
 正常返回E_DA_SUCCESS，否则返回[错误类型](./cplus_general_type)
 
 
-
+<br /><br /><br />
 <a id = 'api_general_sdk_image_create'>`sdk_image_create` </a>
 
 ```c++
@@ -192,7 +189,7 @@ if(create_image_result == E_DA_SUCCESS){
 正常返回E_DA_SUCCESS，否则返回[错误类型](./cplus_general_type)
 
 
-
+<br /><br /><br />
 <a id = 'api_general_sdk_image_create_by_buffer'>`sdk_image_create_by_buffer` </a>
 
 ```c++
@@ -207,6 +204,18 @@ sdk_image_create_by_buffer(
 ```
 
 根据图片路径创建图像指针并分配内存。若不使用，需要[释放](#api_general_sdk_image_release)该指针，否则会内存泄漏
+
+**示例：**
+
+```c++
+da_image_t image;
+da_result_t create_image_result = sdk_image_create_by_buffer(32,32,image_data_point,DA_PIX_FMT_BGR888, &image);
+if(create_image_result == E_DA_SUCCESS){
+  //create image successful
+}else {
+  //something went wrong.
+}
+```
 
 **参数**
 
@@ -223,7 +232,7 @@ sdk_image_create_by_buffer(
 正常返回E_DA_SUCCESS，否则返回[错误类型](./cplus_general_type)
 
 
-
+<br /><br /><br />
 <a id = 'api_general_sdk_image_crop'>`sdk_image_crop` </a>
 
 ```c++
@@ -236,6 +245,21 @@ sdk_image_crop(
 ```
 
 图像扣取。若不使用，需要[释放](#api_general_sdk_image_release)该指针，否则会内存泄漏
+
+**示例：**
+
+```c++
+da_image_t image;
+sdk_image_create("xxxxx.png", &image);
+da_rect_t rect = {left,top,right,bottom};
+da_image_t crop_image;
+da_result_t crop_image_result = sdk_image_crop(&image, &rect, &crop_image);
+if(crop_image_result == E_DA_SUCCESS){
+  //crop image successful
+}else {
+  //something went wrong.
+}
+```
 
 **参数**
 
@@ -250,7 +274,7 @@ sdk_image_crop(
 正常返回E_DA_SUCCESS，否则返回[错误类型](./cplus_general_type)
 
 
-
+<br /><br /><br />
 <a id = 'api_general_sdk_image_save'>`sdk_image_save` </a>
 
 ```c++
@@ -262,6 +286,19 @@ sdk_image_save(
 ```
 
 图像保存到指定路径，使用的程序需要在该路径有读写权限
+
+**示例：**
+
+```c++
+da_image_t image;
+sdk_image_create("xxxxx.png", &image);
+da_result_t save_image_result = sdk_image_save("xxxxxxx.png", &image);
+if(save_image_result == E_DA_SUCCESS){
+  //save image successful
+}else {
+  //something went wrong.
+}
+```
 
 **参数**
 
@@ -275,7 +312,7 @@ sdk_image_save(
 正常返回E_DA_SUCCESS，否则返回[错误类型](./cplus_general_type)
 
 
-
+<br /><br /><br />
 <a id = 'api_general_sdk_image_release'>`sdk_image_release` </a>
 
 ```c++
@@ -286,6 +323,19 @@ sdk_image_release(
 ```
 
 释放图像数据
+
+**示例：**
+
+```c++
+da_image_t image;
+// do something with image and release it final
+da_result_t release_image_result = sdk_image_release(&image);
+if(release_image_result == E_DA_SUCCESS){
+  //release image successful
+}else {
+  //something went wrong.
+}
+```
 
 **参数**
 
@@ -298,7 +348,7 @@ sdk_image_release(
 正常返回E_DA_SUCCESS，否则返回[错误类型](./cplus_general_type)
 
 
-
+<br /><br /><br />
 <a id = 'api_general_sdk_handle_release'>`sdk_handle_release` </a>
 
 ```c++
@@ -309,6 +359,19 @@ sdk_handle_release(
 ```
 
 释放已初始化的句柄
+
+**示例：**
+
+```c++
+da_handle_t handle = nullptr;
+// do something with handle and release it final
+da_result_t handle_release_result = sdk_handle_release(&handle);
+if(handle_release_result == E_DA_SUCCESS){
+  //release handle successful
+}else {
+  //something went wrong.
+}
+```
 
 **参数**
 
