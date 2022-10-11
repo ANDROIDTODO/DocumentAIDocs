@@ -51,6 +51,9 @@ typedef errcode da_result_t;
 | E_DA_IMAGE_W_H_ERROR | -14 | 输入的图片宽高错误 |
 | E_DA_IMAGE_UNSUPPORTED_FORMAT | -15 | 不支持的图片格式 |
 | E_DA_SDK_MODEL_MISMATCH | -16 | SDK不支持该模型 |
+| E_DA_MISSING_ARG | -17 | 缺少参数 |
+| E_DA_UNSUPPORTED_API | -18 | 当前SDK或者模型不支持的API接口 |
+| E_DA_LICENSE_PLATFORM_UNSUPPORTED | -19 | license不支持当前的SDK |
 
 <a id = 'api_general_da_pixel_format_e'>`da_pixel_format_e` </a>
 
