@@ -292,7 +292,7 @@ sdk_image_save(
 ```c++
 da_image_t image;
 sdk_image_create("xxxxx.png", &image);
-da_result_t save_image_result = sdk_image_save("xxxxxxx.png", &image);
+da_result_t save_image_result = sdk_image_save(&image,"xxxxxxx.png");
 if(save_image_result == E_DA_SUCCESS){
   //save image successful
 }else {

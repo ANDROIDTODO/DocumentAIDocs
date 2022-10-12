@@ -15,7 +15,7 @@
 
 ```c++
 da_result_t
-sdk_ocr_rec_infer(
+sdk_ocr_ocr_create(
   const char* config,
   da_handle_t* handle
 );
