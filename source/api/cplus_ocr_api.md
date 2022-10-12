@@ -59,7 +59,7 @@ if(ocr_create_result == E_DA_SUCCESS){
 
 ```c++
 da_result_t
-sdk_ocr_rec_infer(
+sdk_ocr_ocr_infer(
   const da_handle_t* handle,
   da_image_t *image,
   da_ocr_det_t **det_result,
@@ -108,7 +108,7 @@ if (ocr_result_t == E_DA_SUCCESS){
 
 ```c++
 da_result_t
-sdk_ocr_rec_infer(
+sdk_ocr_det_infer(
   const da_handle_t* handle,
   da_image_t *image,
   da_ocr_det_t **det_result,
