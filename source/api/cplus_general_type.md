@@ -235,7 +235,7 @@ typedef enum da_object{
 
 功能：
 
-ocr检测的单个结果，以矩形框表示
+ocr检测的单个结果，以四个点的位置信息表示
 
 声明：
 
@@ -251,7 +251,6 @@ typedef struct da_ocr_det : public da_handle_result{
 | ---- | ----------------------------------------------------- |
 | bbox | 文字所在原图的位置 （左上角，右上角，右下角，左下角） |
 |      |                                                       |
-
 
 <a id = 'api_general_da_ocr_rec_t'>`da_ocr_rec_t` </a>
 
