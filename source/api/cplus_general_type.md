@@ -241,16 +241,16 @@ ocr检测的单个结果，以矩形框表示
 
 ```c
 typedef struct da_ocr_det : public da_handle_result{
-    da_rect_t bbox;
+    int bbox[8] = {0};
 } da_ocr_det_t;
 ```
 
 成员：
 
-| 定义 | **描述**           |
-| ---- | ------------------ |
-| bbox | 文字所在原图的位置 |
-|      |                    |
+| 定义 | **描述**                                              |
+| ---- | ----------------------------------------------------- |
+| bbox | 文字所在原图的位置 （左上角，右上角，右下角，左下角） |
+|      |                                                       |
 
 
 <a id = 'api_general_da_ocr_rec_t'>`da_ocr_rec_t` </a>
