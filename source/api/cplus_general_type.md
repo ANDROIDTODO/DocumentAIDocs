@@ -14,6 +14,9 @@
 | [da_object_t](#api_general_da_object_t) | 目标类型 |
 | [da_ocr_det_t](#api_general_da_ocr_det_t) | ocr检测结果 |
 | [da_ocr_rec_t](#api_general_da_ocr_rec_t) | ocr识别结果 |
+| [da_line_t](#api_general_da_line_t) | int类型线条坐标 |
+| [da_table_cell_t](#api_general_da_table_cell_t) | 表格单元格识别结果 |
+| [da_table_t](#api_general_da_table_t) | 表格识别结果 |
 
 
 
@@ -275,5 +278,97 @@ typedef struct da_ocr_rec : public da_handle_result{
 | confidence | 识别的置信度，范围[0,1]，值越大，置信度越高 |
 |            |                                             |
 
+<a id = 'api_general_da_line_t'>`da_line_t` </a>
+
+功能：
+
+int类型描述线条定义
+
+声明：
+
+```c
+typedef struct da_line {
+    int start_x = 0;
+    int start_y = 0;
+    int end_x = 0;
+    int end_y = 0;
+} da_line_t;
+```
+
+成员：
+
+| 定义       | **描述**                                    |
+| ---------- | ------------------------------------------- |
+| start_x    | 线条起点的x坐标                              |
+| start_y    | 线条起点的y坐标                              |
+| end_x      | 线条终点的x坐标                              |
+| end_y      | 线条终点的y坐标                              |
 
 
+<a id = 'api_general_da_table_cell_t'>`da_table_cell_t` </a>
+
+功能：
+
+表格识别的单元格结果，包括单元格的行列信息，位置信息以及文本信息
+
+声明：
+
+```c
+typedef struct da_table_cell {
+    int start_row = 0;
+    int end_row = 0;
+    int start_col = 0;
+    int end_col = 0;
+
+    char text[256] = {};
+    da_rect_t bbox{0, 0, 0, 0};
+}da_table_cell_t;
+```
+
+成员：
+
+| 定义       | **描述**                                    |
+| ---------- | ------------------------------------------- |
+| start_row  | 单元格起始行                                 |
+| end_row    | 单元格结束行                                 |
+| start_col  | 单元格起始列                                 |
+| end_col    | 单元格结束列                                 |
+| text       | 单元格内包括的文字                            |
+| bbox       | 单元格的矩形框位置信息                        |
+
+<a id = 'api_general_da_table_t'>`da_table_t` </a>
+
+功能：
+
+表格识别结果，包括表格的类型，角度，行列数，位置信息以及表格线条
+
+声明：
+
+```c
+typedef struct da_table{
+    float angle = 0.0;
+    int table_type = 0;
+    int row_count = 0;
+    int col_count = 0;
+    int horizon_lines_count = 0;
+    int vertical_lines_count = 0;
+
+    da_rect_t bound{0,0,0,0};
+    da_line_t* horizon_lines = nullptr;
+    da_line_t* vertical_lines = nullptr;
+}da_table_t;
+```
+
+成员：
+
+| 定义       | **描述**                                    |
+| ---------- | ------------------------------------------- |
+| angle      | 表格旋转的角                                 |
+| table_type | 表格的类型（标准表格/少线表格）                |
+| row_count  | 表格的行数                                   |
+| col_count  | 表格的列数                                   |
+| horizon_lines_count      | 表格横线数                     |
+| vertical_lines_count     | 表格竖线数                     |
+| bound      | 表格的矩形框位置信息                          |
+| horizon_lines      | 表格横线的结构体数组                  |
+| vertical_lines     | 表格竖线的结构体数组                  |
