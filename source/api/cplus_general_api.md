@@ -14,7 +14,7 @@
 | [sdk_image_save](#api_general_sdk_image_save) | 图像保存 |
 | [sdk_image_release](#api_general_sdk_image_release) | 释放图像数据 |
 | [sdk_handle_release](#api_general_sdk_handle_release) | 释放模型句柄 |
-| [sdk_handle_common_release](#api_general_sdk_handle_common_release) | 释放返回的数据结果 |
+|  |  |
 
 <br /><br /><br />
 <a id = 'api_general_sdk_add_license'>`sdk_add_license` </a>
