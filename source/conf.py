@@ -22,7 +22,7 @@ copyright = '2022, JeromeYang'
 author = 'JeromeYang'
 
 # The full version, including alpha/beta/rc tags
-release = '1.0.0'
+release = '2.0.1-rc'
 
 
 # -- General configuration ---------------------------------------------------
