@@ -8,7 +8,7 @@
 | [sdk_ocr_ocr_infer](#api_ocr_c_sdk_ocr_ocr_infer) | 使用句柄中包含的模型进行文字的检测和识别（OCR全功能,根据输入的模型） |
 | [sdk_ocr_det_infer](#api_ocr_c_sdk_ocr_det_infer) | 使用文字检测模型进行文字检测（OCR单功能） |
 | [sdk_ocr_rec_infer](#api_ocr_c_sdk_ocr_rec_infer) | 使用文字识别模型进行文字识别（OCR单功能） |
-| [sdk_ocr_det_release_result](#api_ocr_c_sdk_ocr_det_release_result) | 使用文字识别模型进行文字识别（OCR单功能） |
+| [sdk_ocr_det_release_result](#api_ocr_c_sdk_ocr_det_release_result) | 释放OCR检测的内存 |
 | [sdk_ocr_rec_release_result](#api_ocr_c_sdk_ocr_rec_release_result) | 释放OCR识别的内存 |
 
 
