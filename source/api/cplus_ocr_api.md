@@ -287,7 +287,7 @@ sdk_image_create("image.png", &image);
 da_ocr_det_t *ocr_det_result = nullptr;
 da_ocr_rec_t *ocr_rec_result = nullptr;
 int ocr_result_count = 0;
-da_result_t ocr_result_t = sdk_ocr_ocr_infer(&ocr_det_handle,&image,&ocr_det_result,&ocr_rec_result,&ocr_result_count);
+da_result_t ocr_result_t = sdk_ocr_ocr_infer(&ocr_handle,&image,&ocr_det_result,&ocr_rec_result,&ocr_result_count);
 if (ocr_result_t == E_DA_SUCCESS)
 {
   for (int i = 0; i < ocr_result_count; ++i) 
@@ -304,7 +304,7 @@ if (ocr_result_t == E_DA_SUCCESS)
 sdk_image_release(&image);
 
 ///release handle resouces, when you no longer use them
-da_result_t handle_release_result = sdk_handle_release(&ocr_det_handle);
+da_result_t handle_release_result = sdk_handle_release(&ocr_handle);
 std::cout << "sdk_handle_release result : " << handle_release_result << std::endl;
 
 ///release ocr infer result, when you no longer use them
