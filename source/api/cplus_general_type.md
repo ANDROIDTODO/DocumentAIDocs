@@ -15,9 +15,9 @@
 | [da_ocr_det_t](#api_general_da_ocr_det_t) | ocr检测结果 |
 | [da_ocr_rec_t](#api_general_da_ocr_rec_t) | ocr识别结果 |
 | [da_line_t](#api_general_da_line_t) | int类型线条坐标 |
+| [da_table_type_t](#api_general_da_table_type_t) | 表格类型 |
 | [da_table_cell_t](#api_general_da_table_cell_t) | 表格单元格识别结果 |
 | [da_table_t](#api_general_da_table_t) | 表格识别结果 |
-
 
 
 <a id = 'api_general_da_result_t'>`da_result_t` </a>
@@ -278,6 +278,8 @@ typedef struct da_ocr_rec : public da_handle_result{
 | confidence | 识别的置信度，范围[0,1]，值越大，置信度越高 |
 |            |                                             |
 
+
+
 <a id = 'api_general_da_line_t'>`da_line_t` </a>
 
 功能：
@@ -304,6 +306,29 @@ typedef struct da_line {
 | end_x      | 线条终点的x坐标                              |
 | end_y      | 线条终点的y坐标                              |
 
+<a id = 'api_general_da_table_type_t'>`da_table_type_t` </a>
+
+功能：
+
+指定表格的类型
+
+声明：
+
+```c
+typedef enum da_table_type{
+    TABLE_UNKNOWN = 0,
+    TABLE_STD,
+    TABLE_RIMLESS,
+}da_table_type_t;
+```
+
+成员：
+
+| 定义       | **描述**                                    |
+| ---------- | ------------------------------------------- |
+| TABLE_UNKNOWN    | 未知的表格类型标                              |
+| TABLE_STD    | 标准表格类型                             |
+| TABLE_RIMLESS      | 少线表格类型                              |
 
 <a id = 'api_general_da_table_cell_t'>`da_table_cell_t` </a>
 
