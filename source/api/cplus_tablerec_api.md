@@ -6,6 +6,8 @@
 | ---- | :--- |
 | [sdk_table_rec_create](#api_tablerec_c_sdk_table_rec_create) | 创建文字检测、识别，方向的句柄 |
 | [sdk_table_rec_infer](#api_tablerec_c_sdk_table_rec_infer) | 使用句柄中包含的模型进行表格识别 |
+| [sdk_table_rec_release_table_result](#api_tablerec_c_sdk_table_rec_release_table_result) | 释放表格识别的内存 |
+| [sdk_table_rec_release_cells_result](#api_tablerec_c_sdk_table_rec_release_cells_result) | 释放表格单元格识别的内存 |
 
 
 <a id = 'api_tablerec_c_sdk_table_rec_create'>`sdk_table_rec_create` </a>
@@ -84,6 +86,44 @@ sdk_table_rec_infer(
 | table_result | [out]       | 返回表格识别的结果 |
 | table_cells_result | [out]       | 返回表格单元格识别的结果 |
 | cell_count | [out]       | 返回表格单元格识别的个数 |
+
+**响应**
+
+正常返回E_DA_SUCCESS，否则返回[错误类型](./cplus_general_type)
+
+
+<a id = 'api_tablerec_c_sdk_table_rec_release_table_result'>`sdk_table_rec_release_table_result` </a>
+
+```c++
+da_result_t sdk_table_rec_release_table_result(da_table_t table_result);
+```
+
+释放表格识别的内存
+
+**参数**
+
+| **变量名** | **输入/输出** | **描述**           |
+| ---------- | ------------- | ------------------ |
+| table_result     | [in]          | 表格识别的保存结果  |
+
+**响应**
+
+正常返回E_DA_SUCCESS，否则返回[错误类型](./cplus_general_type)
+
+
+<a id = 'api_tablerec_c_sdk_table_rec_release_cells_result'>`sdk_table_rec_release_cells_result` </a>
+
+```c++
+da_result_t sdk_table_rec_release_cells_result(da_table_cell_t* table_cells_result);
+```
+
+释放表格单元格识别的内存
+
+**参数**
+
+| **变量名** | **输入/输出** | **描述**           |
+| ---------- | ------------- | ------------------ |
+| table_cells_result     | [in]          | 表格单元格识别的结果  |
 
 **响应**
 
