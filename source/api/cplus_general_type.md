@@ -344,8 +344,9 @@ typedef struct da_table_cell {
     int end_row = 0;
     int start_col = 0;
     int end_col = 0;
+    int text_length = 0;
 
-    char text[256] = {};
+    char *text = nullptr;
     da_rect_t bbox{0, 0, 0, 0};
 }da_table_cell_t;
 ```
@@ -358,6 +359,7 @@ typedef struct da_table_cell {
 | end_row    | 单元格结束行                                 |
 | start_col  | 单元格起始列                                 |
 | end_col    | 单元格结束列                                 |
+| text_length    | 单元格内文本的长度                                 |
 | text       | 单元格内包括的文字                            |
 | bbox       | 单元格的矩形框位置信息                        |
 
@@ -371,16 +373,20 @@ typedef struct da_table_cell {
 
 ```c
 typedef struct da_table{
+    bool visible = false;
     float angle = 0.0;
-    int table_type = 0;
+    int num = 0;
     int row_count = 0;
     int col_count = 0;
+    int cell_count = 0;
     int horizon_lines_count = 0;
     int vertical_lines_count = 0;
 
-    da_rect_t bound{0,0,0,0};
+    da_object_t table_type = DA_OB_UNKNOWN;
     da_line_t* horizon_lines = nullptr;
     da_line_t* vertical_lines = nullptr;
+    da_table_cell_t* table_cells = nullptr;
+    da_rect_t bound{0,0,0,0};
 }da_table_t;
 ```
 
@@ -388,12 +394,15 @@ typedef struct da_table{
 
 | 定义       | **描述**                                    |
 | ---------- | ------------------------------------------- |
+| visible      | 表格识别可视化                                 |
 | angle      | 表格旋转的角                                 |
-| table_type | 表格的类型（标准表格/少线表格）                |
+| num | 表格序号                |
 | row_count  | 表格的行数                                   |
 | col_count  | 表格的列数                                   |
 | horizon_lines_count      | 表格横线数                     |
 | vertical_lines_count     | 表格竖线数                     |
-| bound      | 表格的矩形框位置信息                          |
+| table_type | 表格的类型               |
 | horizon_lines      | 表格横线的结构体数组                  |
 | vertical_lines     | 表格竖线的结构体数组                  |
+| table_cells      | 表格包含的所有单元格信息                          |
+| bound      | 表格的矩形框位置信息                          |
