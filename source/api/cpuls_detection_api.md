@@ -122,7 +122,7 @@ sdk_detection_release_result(
 
 | **变量名**       | **输入/输出** | **描述**                                |
 | ---------------- | ------------- | --------------------------------------- |
-| detection_result | [in]          | 通过`sdk_detection_infer`输出的检测见过 |
+| detection_result | [in]          | 通过`sdk_detection_infer`输出的检测结果 |
 
 **响应**
 
