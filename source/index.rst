@@ -23,6 +23,6 @@ Welcome to DocumentAI's documentation!
    api/cplus_general_type
    api/cplus_general_api
    api/cplus_ocr_api
-   api/cplus_detection_api
+   api/cpuls_detection_api
    api/cplus_tablerec_api
    
