@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>模型介绍 &mdash; DocumentAI 1.0.0 文档</title>
+  <title>模型介绍 &mdash; DocumentAI 2.0.1-rc 文档</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -48,6 +48,13 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api/cplus_general_type.html">通用类型</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/cplus_general_api.html">通用接口</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/cplus_ocr_api.html">OCR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/cpuls_detection_api.html">Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/cplus_tablerec_api.html">TableRec</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">平台相关</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cross_platform/Windows_Chinese_path.html">Windows中文路径编码</a></li>
 </ul>
 
         </div>
@@ -76,6 +83,16 @@
              
   <section id="id1">
 <h1>模型介绍<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<p>DocumentAI中通常会用到一下模型，下面试对模型的简单介绍。</p>
+<ul>
+<li><p>ocr</p>
+<ul class="simple">
+<li><p>文字检测模型，一般命名为DA_Ocr_Detection_xxxxx.model，可得到文字的坐标。在OCR功能模块中使用</p></li>
+<li><p>文字识别模型，一般命名为DA_Ocr_Recgnization_xxxxx.model，可得到文字的信息。一般情况下，和文字检测模型联级使用，对检测到的文字坐标做文字识别。</p></li>
+</ul>
+<p>​</p>
+</li>
+</ul>
 </section>
 
 

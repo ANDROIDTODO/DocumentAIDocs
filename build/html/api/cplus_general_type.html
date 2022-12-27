@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>通用类型 &mdash; DocumentAI 1.0.0 文档</title>
+  <title>通用类型 &mdash; DocumentAI 2.0.1-rc 文档</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -48,6 +48,13 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">通用类型</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cplus_general_api.html">通用接口</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cplus_ocr_api.html">OCR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpuls_detection_api.html">Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cplus_tablerec_api.html">TableRec</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">平台相关</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cross_platform/Windows_Chinese_path.html">Windows中文路径编码</a></li>
 </ul>
 
         </div>
@@ -76,8 +83,7 @@
              
   <section id="id1">
 <h1>通用类型<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
-<p>头文件:
-#include <a class="reference external" href="#">&lt;sdk_document_ai_common.h&gt;</a></p>
+<p><strong>#include <a class="reference external" href="#">&lt;sdk_document_ai_common.h&gt;</a></strong></p>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -126,6 +132,22 @@
 <td><a href="#api_general_da_ocr_rec_t">da_ocr_rec_t</a></td>
 <td style="text-align: left;">ocr识别结果</td>
 </tr>
+<tr>
+<td><a href="#api_general_da_line_t">da_line_t</a></td>
+<td style="text-align: left;">int类型线条坐标</td>
+</tr>
+<tr>
+<td><a href="#api_general_da_table_type_t">da_table_type_t</a></td>
+<td style="text-align: left;">表格类型</td>
+</tr>
+<tr>
+<td><a href="#api_general_da_table_cell_t">da_table_cell_t</a></td>
+<td style="text-align: left;">表格单元格识别结果</td>
+</tr>
+<tr>
+<td><a href="#api_general_da_table_t">da_table_t</a></td>
+<td style="text-align: left;">表格识别结果</td>
+</tr>
 </tbody>
 </table><p><a id = 'api_general_da_result_t'><code class="docutils literal notranslate"><span class="pre">da_result_t</span></code> </a></p>
 <p>功能：</p>
@@ -170,14 +192,14 @@
 <td>文件不存在</td>
 </tr>
 <tr>
-<td>E_DA_SDK_MODEL_MISMATCH</td>
+<td>E_DA_LICENSE_MODEL_MISMATCH</td>
 <td>-5</td>
-<td>库和模型不匹配</td>
+<td>序列号和模型不匹配</td>
 </tr>
 <tr>
 <td>E_DA_INVALID_MODEL_FORMAT</td>
 <td>-6</td>
-<td>模型格式错误</td>
+<td>不合法的模型格式</td>
 </tr>
 <tr>
 <td>E_DA_INVALID_LICENSE</td>
@@ -195,14 +217,54 @@
 <td>SDK过期</td>
 </tr>
 <tr>
-<td>E_DA_MODEL_PLATFORM_UNSUPPORTED</td>
+<td>E_DA_LICENSE_EXPIRE</td>
 <td>-10</td>
+<td>序列号过期</td>
+</tr>
+<tr>
+<td>E_DA_LICENSE_UNINITIALIZED</td>
+<td>-11</td>
+<td>调用接口时未调用初始化序列号接口</td>
+</tr>
+<tr>
+<td>E_DA_MODEL_PLATFORM_UNSUPPORTED</td>
+<td>-12</td>
 <td>模型不支持该平台</td>
 </tr>
 <tr>
-<td>E_DA_IMAGE_EMPTY</td>
-<td>-11</td>
+<td>E_DA_IMAGE_DATA_EMPTY</td>
+<td>-13</td>
 <td>输入的图片不存在或者为空</td>
+</tr>
+<tr>
+<td>E_DA_IMAGE_W_H_ERROR</td>
+<td>-14</td>
+<td>输入的图片宽高错误</td>
+</tr>
+<tr>
+<td>E_DA_IMAGE_UNSUPPORTED_FORMAT</td>
+<td>-15</td>
+<td>不支持的图片格式</td>
+</tr>
+<tr>
+<td>E_DA_SDK_MODEL_MISMATCH</td>
+<td>-16</td>
+<td>SDK不支持该模型</td>
+</tr>
+<tr>
+<td>E_DA_MISSING_ARG</td>
+<td>-17</td>
+<td>缺少参数</td>
+</tr>
+<tr>
+<td>E_DA_UNSUPPORTED_API</td>
+<td>-18</td>
+<td>当前SDK或者模型不支持的API接口</td>
+</tr>
+<tr>
+<td>E_DA_LICENSE_PLATFORM_UNSUPPORTED</td>
+<td>-19</td>
+<td>license不支持当前的SDK</td>
 </tr>
 </tbody>
 </table><p><a id = 'api_general_da_pixel_format_e'><code class="docutils literal notranslate"><span class="pre">da_pixel_format_e</span></code> </a></p>
@@ -449,10 +511,10 @@
 </tbody>
 </table><p><a id = 'api_general_da_ocr_det_t'><code class="docutils literal notranslate"><span class="pre">da_ocr_det_t</span></code> </a></p>
 <p>功能：</p>
-<p>ocr检测的单个结果，以矩形框表示</p>
+<p>ocr检测的单个结果，以四个点的位置信息表示</p>
 <p>声明：</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">da_ocr_det</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">public</span><span class="w"> </span><span class="n">da_handle_result</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">da_rect_t</span><span class="w"> </span><span class="n">bbox</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">bbox</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
 <span class="p">}</span><span class="w"> </span><span class="n">da_ocr_det_t</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
@@ -467,7 +529,7 @@
 <tbody>
 <tr>
 <td>bbox</td>
-<td>文字所在原图的位置</td>
+<td>文字所在原图的位置 （左上角，右上角，右下角，左下角）</td>
 </tr>
 <tr>
 <td></td>
@@ -499,11 +561,216 @@
 </tr>
 <tr>
 <td>confidence</td>
-<td>识别的置信度，范围[0,1]</td>
+<td>识别的置信度，范围[0,1]，值越大，置信度越高</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
+</tr>
+</tbody>
+</table><p><a id = 'api_general_da_line_t'><code class="docutils literal notranslate"><span class="pre">da_line_t</span></code> </a></p>
+<p>功能：</p>
+<p>int类型描述线条定义</p>
+<p>声明：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">da_line</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">start_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">start_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">end_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">end_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">da_line_t</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>成员：</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>定义</th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>start_x</td>
+<td>线条起点的x坐标</td>
+</tr>
+<tr>
+<td>start_y</td>
+<td>线条起点的y坐标</td>
+</tr>
+<tr>
+<td>end_x</td>
+<td>线条终点的x坐标</td>
+</tr>
+<tr>
+<td>end_y</td>
+<td>线条终点的y坐标</td>
+</tr>
+</tbody>
+</table><p><a id = 'api_general_da_table_type_t'><code class="docutils literal notranslate"><span class="pre">da_table_type_t</span></code> </a></p>
+<p>功能：</p>
+<p>指定表格的类型</p>
+<p>声明：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">da_table_type</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">TABLE_UNKNOWN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">TABLE_STD</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">TABLE_RIMLESS</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="n">da_table_type_t</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>成员：</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>定义</th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TABLE_UNKNOWN</td>
+<td>未知的表格类型标</td>
+</tr>
+<tr>
+<td>TABLE_STD</td>
+<td>标准表格类型</td>
+</tr>
+<tr>
+<td>TABLE_RIMLESS</td>
+<td>少线表格类型</td>
+</tr>
+</tbody>
+</table><p><a id = 'api_general_da_table_cell_t'><code class="docutils literal notranslate"><span class="pre">da_table_cell_t</span></code> </a></p>
+<p>功能：</p>
+<p>表格识别的单元格结果，包括单元格的行列信息，位置信息以及文本信息</p>
+<p>声明：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">da_table_cell</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">start_row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">end_row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">start_col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">end_col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">text_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nullptr</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">da_rect_t</span><span class="w"> </span><span class="n">bbox</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="p">}</span><span class="n">da_table_cell_t</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>成员：</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>定义</th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>start_row</td>
+<td>单元格起始行</td>
+</tr>
+<tr>
+<td>end_row</td>
+<td>单元格结束行</td>
+</tr>
+<tr>
+<td>start_col</td>
+<td>单元格起始列</td>
+</tr>
+<tr>
+<td>end_col</td>
+<td>单元格结束列</td>
+</tr>
+<tr>
+<td>text_length</td>
+<td>单元格内文本的长度</td>
+</tr>
+<tr>
+<td>text</td>
+<td>单元格内包括的文字</td>
+</tr>
+<tr>
+<td>bbox</td>
+<td>单元格的矩形框位置信息</td>
+</tr>
+</tbody>
+</table><p><a id = 'api_general_da_table_t'><code class="docutils literal notranslate"><span class="pre">da_table_t</span></code> </a></p>
+<p>功能：</p>
+<p>表格识别结果，包括表格的类型，角度，行列数，位置信息以及表格线条</p>
+<p>声明：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">da_table</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">row_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">col_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">cell_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">horizon_lines_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">vertical_lines_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">da_object_t</span><span class="w"> </span><span class="n">table_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DA_OB_UNKNOWN</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">da_line_t</span><span class="o">*</span><span class="w"> </span><span class="n">horizon_lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nullptr</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">da_line_t</span><span class="o">*</span><span class="w"> </span><span class="n">vertical_lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nullptr</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">da_table_cell_t</span><span class="o">*</span><span class="w"> </span><span class="n">table_cells</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nullptr</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">da_rect_t</span><span class="w"> </span><span class="n">bound</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="p">}</span><span class="n">da_table_t</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>成员：</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>定义</th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>visible</td>
+<td>表格识别可视化</td>
+</tr>
+<tr>
+<td>angle</td>
+<td>表格旋转的角</td>
+</tr>
+<tr>
+<td>num</td>
+<td>表格序号</td>
+</tr>
+<tr>
+<td>row_count</td>
+<td>表格的行数</td>
+</tr>
+<tr>
+<td>col_count</td>
+<td>表格的列数</td>
+</tr>
+<tr>
+<td>horizon_lines_count</td>
+<td>表格横线数</td>
+</tr>
+<tr>
+<td>vertical_lines_count</td>
+<td>表格竖线数</td>
+</tr>
+<tr>
+<td>table_type</td>
+<td>表格的类型</td>
+</tr>
+<tr>
+<td>horizon_lines</td>
+<td>表格横线的结构体数组</td>
+</tr>
+<tr>
+<td>vertical_lines</td>
+<td>表格竖线的结构体数组</td>
+</tr>
+<tr>
+<td>table_cells</td>
+<td>表格包含的所有单元格信息</td>
+</tr>
+<tr>
+<td>bound</td>
+<td>表格的矩形框位置信息</td>
 </tr>
 </tbody>
 </table></section>

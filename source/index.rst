@@ -25,4 +25,11 @@ Welcome to DocumentAI's documentation!
    api/cplus_ocr_api
    api/cpuls_detection_api
    api/cplus_tablerec_api
+
+.. toctree::
+   :maxdepth: 1
+   :caption: 平台相关
+   :name: platform_about
+
+   cross_platform/Windows_Chinese_path
    

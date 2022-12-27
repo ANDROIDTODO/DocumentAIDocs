@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>通用接口 &mdash; DocumentAI 1.0.0 文档</title>
+  <title>Pipeline &mdash; DocumentAI 2.0.1-rc 文档</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -46,6 +46,13 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="cplus_general_type.html">通用类型</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cplus_general_api.html">通用接口</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cplus_ocr_api.html">OCR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpuls_detection_api.html">Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cplus_tablerec_api.html">TableRec</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">平台相关</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cross_platform/Windows_Chinese_path.html">Windows中文路径编码</a></li>
 </ul>
 
         </div>
@@ -62,9 +69,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>通用接口</li>
+      <li>Pipeline</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/api/cpuls_layout_parse_api.md.txt" rel="nofollow"> 查看页面源码</a>
+            <a href="../_sources/api/cplus_pipeline_api.md.txt" rel="nofollow"> 查看页面源码</a>
       </li>
   </ul>
   <hr/>
@@ -72,55 +79,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="id1">
-<h1>通用接口<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
-<table border="1" class="docutils">
-<thead>
-<tr>
-<th><strong>接口名称</strong></th>
-<th style="text-align: left;"><strong>功能</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#api_general_da_result_t">sdk_add_license</a></td>
-<td style="text-align: left;">添加license</td>
-</tr>
-<tr>
-<td><a href="#api_general_da_pixel_format_e">sdk_version</a></td>
-<td style="text-align: left;">获取sdk版本号</td>
-</tr>
-<tr>
-<td><a href="#api_general_da_image_t">sdk_model_version</a></td>
-<td style="text-align: left;">获取模型版本号</td>
-</tr>
-<tr>
-<td><a href="#api_general_da_handle_t">sdk_image_create</a></td>
-<td style="text-align: left;">根据图片路径创建图像指针并分配内存</td>
-</tr>
-<tr>
-<td><a href="#api_general_da_pointf_t">sdk_image_create_by_buffer</a></td>
-<td style="text-align: left;">根据图片数据创建图像指针并分配内存</td>
-</tr>
-<tr>
-<td><a href="#api_general_da_point_t">sdk_image_crop</a></td>
-<td style="text-align: left;">图像扣取</td>
-</tr>
-<tr>
-<td><a href="#api_general_da_rect_t">sdk_image_save</a></td>
-<td style="text-align: left;">图像保存</td>
-</tr>
-<tr>
-<td><a href="#api_general_da_object_t">sdk_image_release</a></td>
-<td style="text-align: left;">释放图像数据</td>
-</tr>
-</tbody>
-</table><p><code class="docutils literal notranslate"><span class="pre">sdk_add_license</span></code></p>
-<p>#include &lt;<a class="reference external" href="https://github.com/PaddlePaddle/Paddle-Lite/tree/develop/lite/api/paddle_api.h">sdk_document_ai_api.h</a>&gt;</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">da_result_t</span><span class="w"> </span><span class="nf">sdk_add_license</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">license</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-</div>
-<p>设置license，根据</p>
+  <section id="pipeline">
+<h1>Pipeline<a class="headerlink" href="#pipeline" title="永久链接至标题"></a></h1>
+<p><strong>#include <a class="reference external" href="#">&lt;sdk_document_ai_pipeline.h&gt;</a></strong></p>
 </section>
 
 

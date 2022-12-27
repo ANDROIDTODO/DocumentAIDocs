@@ -1,9 +1,11 @@
-[此文档提供一种在windows平台下解决传入中文路径时模型或者图片无法加载的问题的方法]()
+## Windows中文路径编码
+
+此文档提供一种在windows平台下解决传入中文路径时模型或者图片无法加载的问题的方法
 
 此问题的本质为字符串的编码问题，我们只需要将传入的字符串进行编码格式的转换即可解决此问题，以下为一个简单的字符编码类的声明与实现以及使用实例代码。
 
 
-**[include]()**
+**头文件**
 ```c++
 #include <cstdint>
 #include <iostream>
@@ -35,7 +37,7 @@ private:
 };
 ```
 
-**[src]()**
+**源码**
 ```c++
 UTF8Decoder::UTF8Decoder(const std::string& src_str)
 {
@@ -98,7 +100,7 @@ std::string UTF8Decoder::ToDefAnsi() const
 }
 ```
 
-**[代码示例]()**
+**代码示例**
 ```c++
   auto chinese_path = "path/with/中文";
   UTF8Decoder decoder(chinese_path);
